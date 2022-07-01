@@ -5,11 +5,13 @@
  */
 package paquete04;
 
+import paquete02.Automovil;
+
 /**
  *
  * @author reroes
  */
-public class AutomovilDiesel {
+public class AutomovilDiesel extends Automovil{
     
 private int numeroLitros;
     private double costoLitro;
@@ -69,3 +71,4 @@ private int numeroLitros;
                 valorCancelar);
         return cadena;
     }
+}
