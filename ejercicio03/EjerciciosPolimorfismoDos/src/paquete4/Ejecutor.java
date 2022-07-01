@@ -7,6 +7,7 @@ package paquete4;
 
 import java.util.ArrayList;
 import paquete2.Arriendo;
+import paquete2.Propietario;
 import paquete3.ArriendoLocalComercial;
 import paquete3.ArriendoLocalComida;
 import paquete3.ArriendoLocalSesiones;
@@ -16,18 +17,22 @@ public class Ejecutor {
         
         ArrayList<Arriendo> listaArriendos = new ArrayList<>();
         
+        Propietario p1 = new Propietario("Christian","Shepherd",30);
+        Propietario p2 = new Propietario("Andrew ","Schroeder",19);
+        Propietario p3 = new Propietario("Angela","Watson",25);
+        
         ArriendoLocalComida arriendoComida = new ArriendoLocalComida(
-                "Christian Shepherd", 300);
+                p1, 300);
         arriendoComida.establecerIva(10); // en porcentaje
         arriendoComida.establecerValorAgua(20.2); // en $
         arriendoComida.establecerValorLuz(40.2); // en $
         
         ArriendoLocalComercial arriendoComercial = new ArriendoLocalComercial(
-                "Andrew Schroeder", 400);
+                p2, 400);
         arriendoComercial.establecerValorAdicionalFijo(100); // en $
         
         ArriendoLocalSesiones arriendoSesiones = new ArriendoLocalSesiones(
-                "Angela Watson", 350);
+                p3, 350);
         arriendoSesiones.establecerValorSillas(10); // en $
         arriendoSesiones.establecerValorAmplificacion(20); // en $
         
@@ -39,7 +44,7 @@ public class Ejecutor {
             listaArriendos.get(i).establecerArriendoMensual();
         }
         
-        CentroComercial centro = new CentroComercial("La Pradera", 
+        CentroComercial centro = new CentroComercial("Mayorista", 
                 listaArriendos);
         centro.establecerTotalArriendosBaseMensual();
         centro.establecerTotalArriendosFinalMensual();

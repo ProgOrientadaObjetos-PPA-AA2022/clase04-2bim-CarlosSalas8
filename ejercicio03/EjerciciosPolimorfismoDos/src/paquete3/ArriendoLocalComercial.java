@@ -6,6 +6,8 @@
 package paquete3;
 
 import paquete2.Arriendo;
+import paquete2.Propietario;
+
 
 /**
  *
@@ -15,13 +17,16 @@ public class ArriendoLocalComercial extends Arriendo {
 
     protected double valorAdicionalFijo;
 
-    public ArriendoLocalComercial(String nombre, double cuotaB) {
-        super(nombre, cuotaB);
+    public ArriendoLocalComercial(Propietario a, double cuotaB) {
+        super(a, cuotaB);
     }
 
-    @Override
+    /*@Override
     public void establecerNombreArrendatario(String nombre) {
         nombreArrendatario = nombre.toUpperCase();
+    }*/
+    public void establecerArrendatario(Propietario a) {
+        arrendatario = a;
     }
 
     public void establecerValorAdicionalFijo(double x) {
@@ -37,14 +42,18 @@ public class ArriendoLocalComercial extends Arriendo {
         return valorAdicionalFijo;
     }
 
+    public Propietario obtenerArrendatario() {
+        return arrendatario;
+    }
+
     @Override
     public String toString() {
         String cadena = String.format("Ariendo de Local Comercial\n"
-                + "Nombre Arrendatario: %s\n"
+                + "%s\n"
                 + "Cuota base: %.2f\n"
                 + "Valor adicional fijo: %.2f\n"
                 + "Arriendo Total: %.2f\n",
-                obtenerNombreArrendatario(),
+                obtenerArrendatario(),
                 obtenerCuotaBase(),
                 obtenerValorAdicionalFijo(),
                 obtenerArriendoMensual());
